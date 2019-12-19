@@ -1,5 +1,5 @@
 
-const db = require('../database/dbConfig.js');
+const db = require('../data/db-config.js');
 
 module.exports = {
     add,

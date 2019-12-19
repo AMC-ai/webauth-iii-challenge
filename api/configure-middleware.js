@@ -14,5 +14,5 @@ module.exports = server => {
     server.use(express.json());
     server.use(cors());
     server.use(logger);
-    server.use(sessions(sessionConfiguration)); //this is going to add a req.session object and can be passed throughout the whole app if it is placed here
+
 };
