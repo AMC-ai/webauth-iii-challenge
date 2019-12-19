@@ -9,17 +9,21 @@ module.exports = {
 };
 
 function find() {
-    return db('users').select('id', 'username', 'password', 'department');
+    return db('users').select('id', 'username', 'password', 'dept');
 }
 
 function findBy(filter) {
     return db('users').where(filter);
 }
 
-async function add(user) {
-    const [id] = await db('users').insert(user);
-
-    return findById(id);
+function add(user) {
+    return db('users').insert(user)
+        .then(({ id }) => {
+            return findById(id);
+        })
+        .catch(err => {
+            return err;
+        });
 }
 
 function findById(id) {
